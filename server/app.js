@@ -6,11 +6,8 @@ const app = express();
 app.use(express.static(dir.static));
 
 app.get('/', (req, res) => {
-    res.render(dir.getView('main', {title: 'Main'}));
-})
-
-app.use((req, res) => {
-    req.render(dir.getView('error'));
+    let title = 'Main';
+    res.render(dir.getView('main'), {title: title});
 })
 
 app.listen(8000, (error) => {
