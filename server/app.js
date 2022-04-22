@@ -12,11 +12,11 @@ app.get('/', (req, res) => {
 
 app.get('/topics', (req, res) => {
     let title = 'Topics';
-    res.render(dir.getView('topics', {title: title}));
+    res.render(dir.getView('topics'), {title: title});
 })
 
 app.use((req, res) => {
-    res.render(dir.getView('error', {title: title}));
+    res.render(dir.getView('error'), {title: title});
 })
 
 
