@@ -1,0 +1,23 @@
+<html>
+<head>
+    <meta charset='utf-8'>
+
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/topics.css">
+    <script type = "text/javascript" src="../scripts/preview_article.js"></script>
+    <title>Progger | <%= title%></title>
+</head>
+<body>
+<div class="wrapper">
+    <%- include('blocks/nav.ejs'); %>
+    <main>
+        <h1><%=title%> page</h1>
+        <% if(topics.length) { %>
+            <% topics.forEach(({ name, text, url }) => { %>
+                <%- include('blocks/preview_article.ejs', {article_name: name, article_text: text, article_url: `/topics/obj?id=${url}`}) %>
+            <% }); %>
+        <% } %>
+    </main>
+</div>
+</body>
+</html>
