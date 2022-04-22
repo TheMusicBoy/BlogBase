@@ -10,6 +10,16 @@ app.get('/', (req, res) => {
     res.render(dir.getView('main'), {title: title});
 })
 
+app.get('/topics', (req, res) => {
+    let title = 'Topics';
+    res.render(dir.getView('topics', {title: title}));
+})
+
+app.use((req, res) => {
+    res.render(dir.getView('error', {title: title}));
+})
+
+
 app.listen(8000, (error) => {
     if(error)
         console.log(error);
